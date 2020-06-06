@@ -5,6 +5,8 @@
 <div *ngIf="isLoading" style="text-align: center;">
 	<app-loading-spinner></app-loading-spinner>
 </div>
-<ul *ngIf="!isLoading">
+<ul *ngIf="!isLoading" id="list" #list>
 	<li *ngFor="let item of items | async; let i = index" [attr.data-index]="i" [@list]>{{ item.name }}</li>
 </ul>
+<br><br><br>
+<button (click)="onClickDownload()">Export Todos</button>
