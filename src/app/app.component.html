@@ -2,6 +2,9 @@
 <br>
 <button type="submit" (click)="onSubmit()">Submit</button>
 <br><br><br>
-<div *ngFor="let item of items | async; let i = index" [attr.data-index]="i">
-   <p>{{item.name}}</p>
+<div *ngIf="isLoading" style="text-align: center;">
+	<app-loading-spinner></app-loading-spinner>
 </div>
+<ul *ngIf="!isLoading">
+	<li *ngFor="let item of items | async; let i = index" [attr.data-index]="i" [@list]>{{ item.name }}</li>
+</ul>
